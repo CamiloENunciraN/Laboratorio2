@@ -26,21 +26,34 @@ public class FormMain extends javax.swing.JFrame {
     // <editor-fold defaultstate="collapsed" desc="Generated Code">//GEN-BEGIN:initComponents
     private void initComponents() {
 
-        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        jLabel1 = new javax.swing.JLabel();
+        btDepartamento = new javax.swing.JButton();
+        lblFondo = new javax.swing.JLabel();
 
-        javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
-        getContentPane().setLayout(layout);
-        layout.setHorizontalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 400, Short.MAX_VALUE)
-        );
-        layout.setVerticalGroup(
-            layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
-            .addGap(0, 300, Short.MAX_VALUE)
-        );
+        setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
+        getContentPane().setLayout(new org.netbeans.lib.awtextra.AbsoluteLayout());
+
+        jLabel1.setText("Universidad la Fortaleza");
+        getContentPane().add(jLabel1, new org.netbeans.lib.awtextra.AbsoluteConstraints(130, 30, -1, -1));
+
+        btDepartamento.setText("Departamento");
+        btDepartamento.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDepartamentoActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 107, -1, -1));
+        getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 410, 310));
 
         pack();
     }// </editor-fold>//GEN-END:initComponents
+
+    private void btDepartamentoActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDepartamentoActionPerformed
+        // TODO add your handling code here:
+        
+        
+        
+    }//GEN-LAST:event_btDepartamentoActionPerformed
 
     /**
      * @param args the command line arguments
@@ -78,5 +91,8 @@ public class FormMain extends javax.swing.JFrame {
     }
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
+    private javax.swing.JButton btDepartamento;
+    private javax.swing.JLabel jLabel1;
+    private javax.swing.JLabel lblFondo;
     // End of variables declaration//GEN-END:variables
 }

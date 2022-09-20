@@ -12,7 +12,7 @@ class Profesor {
     private String codigo;
     private String nombre;
     private String titulo;
-    private Departamento departamento;
+
 
     public Profesor(String codigo, String nombre, String titulo) {
         this.codigo = codigo;
