@@ -15,13 +15,13 @@ public class Departamento {
     private String codigo;
     private String ubicacion;
     private ArrayList<Programa> listaPrograma;
-    private ArrayList<Profesor> listaProfesor;
+    private ArrayList<Docente> listaDocente;
 
     public Departamento(String nombre, String codigo, String ubicacion) {
         this.nombre = nombre;
         this.codigo = codigo;
         this.ubicacion = ubicacion;
-        this.listaProfesor=new ArrayList<Profesor>();
+        this.listaDocente=new ArrayList<Docente>();
         this.listaPrograma=new ArrayList<Programa>();
     }
 
@@ -37,7 +37,7 @@ public class Departamento {
                 c="Departamento Registrado";
            }else{
                
-                d=new Programa(codigo, nombre, this.buscarProfesor(director)); 
+                d=new Programa(codigo, nombre, this.buscarDocente(director)); 
                 this.listaPrograma.add(d);
                 c="Departamento Registrado";
            }
@@ -48,13 +48,13 @@ public class Departamento {
         return c;
     }
     
-    public String registrarProfesor(String codigo, String nombre, String titulo) {
-       String c="El profesor ya existe";
-       Profesor d=this.buscarProfesor(codigo);
+    public String registrarDocente(String codigo, String nombre, String titulo, double salarioBasico) {
+       String c="El docente ya existe";
+       Docente d=this.buscarDocente(codigo);
        if(d==null){
-           d=new Profesor(codigo, nombre, titulo); 
-           this.listaProfesor.add(d);
-           c="Profesor Registrado";
+           d=new Docente(codigo, nombre, titulo, salarioBasico); 
+           this.listaDocente.add(d);
+           c="Docente Registrado";
        }
       
         return c;
@@ -72,10 +72,10 @@ public class Departamento {
     }
     
     
-    private Profesor buscarProfesor(String codigo) {
-       Profesor d=null;
-       for(int i=0;i<this.listaProfesor.size();i++){
-            d=this.listaProfesor.get(i);
+    private Docente buscarDocente(String codigo) {
+       Docente d=null;
+       for(int i=0;i<this.listaDocente.size();i++){
+            d=this.listaDocente.get(i);
            if(codigo.equals(codigo)){
                break;
            }

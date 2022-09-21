@@ -13,7 +13,7 @@ import java.util.ArrayList;
 public class Programa {
     private String codigo;
     private String nombre;
-    private Profesor director;
+    private Docente director;
     private ArrayList<Asignatura> listaAsignatura;
 
     public Programa(String codigo, String nombre) {
@@ -22,7 +22,7 @@ public class Programa {
         this.listaAsignatura=new ArrayList<Asignatura>();
     }
 
-    public Programa(String codigo, String nombre, Profesor director) {
+    public Programa(String codigo, String nombre, Docente director) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.director = director;

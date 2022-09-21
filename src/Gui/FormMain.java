@@ -4,12 +4,14 @@
  */
 package Gui;
 
+import Business.Universidad;
+
 /**
  *
  * @author Camilo
  */
 public class FormMain extends javax.swing.JFrame {
-
+private Universidad myUni;
     /**
      * Creates new form FormMain
      */
@@ -17,6 +19,10 @@ public class FormMain extends javax.swing.JFrame {
         initComponents();
     }
 
+    public FormMain(Universidad u) {
+        this.myUni=u;
+        initComponents();
+    }
     /**
      * This method is called from within the constructor to initialize the form.
      * WARNING: Do NOT modify this code. The content of this method is always
@@ -28,6 +34,7 @@ public class FormMain extends javax.swing.JFrame {
 
         jLabel1 = new javax.swing.JLabel();
         btDepartamento = new javax.swing.JButton();
+        btDocente = new javax.swing.JButton();
         lblFondo = new javax.swing.JLabel();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
@@ -43,6 +50,16 @@ public class FormMain extends javax.swing.JFrame {
             }
         });
         getContentPane().add(btDepartamento, new org.netbeans.lib.awtextra.AbsoluteConstraints(69, 107, -1, -1));
+
+        btDocente.setText("Docente");
+        btDocente.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btDocenteActionPerformed(evt);
+            }
+        });
+        getContentPane().add(btDocente, new org.netbeans.lib.awtextra.AbsoluteConstraints(220, 110, -1, -1));
+
+        lblFondo.setIcon(new javax.swing.ImageIcon(getClass().getResource("/Img/Fondo.jpg"))); // NOI18N
         getContentPane().add(lblFondo, new org.netbeans.lib.awtextra.AbsoluteConstraints(-3, -4, 410, 310));
 
         pack();
@@ -54,6 +71,14 @@ public class FormMain extends javax.swing.JFrame {
         
         
     }//GEN-LAST:event_btDepartamentoActionPerformed
+
+    private void btDocenteActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btDocenteActionPerformed
+        // TODO add your handling code here:
+        
+        FormDocente f=new FormDocente(this.myUni);
+        f.setVisible(true);
+        dispose();
+    }//GEN-LAST:event_btDocenteActionPerformed
 
     /**
      * @param args the command line arguments
@@ -92,6 +117,7 @@ public class FormMain extends javax.swing.JFrame {
 
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btDepartamento;
+    private javax.swing.JButton btDocente;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel lblFondo;
     // End of variables declaration//GEN-END:variables
