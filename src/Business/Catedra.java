@@ -15,7 +15,7 @@ private int noContratoSemestral;
 private int noHorasSemanal;
 private double valorHora;
 
-    public Catedra(String categoria, int noContratoSemestral, int noHorasSemanal, double valorHora, String codigo, String nombre, String titulo, double salarioBasico) {
+    public Catedra( String codigo, String nombre, String titulo, double salarioBasico,String categoria, int noContratoSemestral, int noHorasSemanal, double valorHora) {
         super(codigo, nombre, titulo, salarioBasico);
         this.categoria = categoria;
         this.noContratoSemestral = noContratoSemestral;

@@ -3,9 +3,11 @@
     <editor-bookmarks xmlns="http://www.netbeans.org/ns/editor-bookmarks/2" lastBookmarkId="0"/>
     <open-files xmlns="http://www.netbeans.org/ns/projectui-open-files/2">
         <group>
-            <file>file:/C:/Users/Camilo/Documents/NetBeansProjects/Laboratorio2/src/Gui/FormDepartamento.java</file>
-            <file>file:/C:/Users/Camilo/Documents/NetBeansProjects/Laboratorio2/src/Gui/FormDocente.java</file>
-            <file>file:/C:/Users/Camilo/Documents/NetBeansProjects/Laboratorio2/src/Gui/FormMain.java</file>
+            <file>file:/C:/Users/Camilo/Documents/NetBeansProjects/Universidad_Fortaleza/src/Gui/FormMain.java</file>
+            <file>file:/C:/Users/Camilo/Documents/NetBeansProjects/Universidad_Fortaleza/src/Gui/FormDocente.java</file>
+            <file>file:/C:/Users/Camilo/Documents/NetBeansProjects/Universidad_Fortaleza/src/Business/Departamento.java</file>
+            <file>file:/C:/Users/Camilo/Documents/NetBeansProjects/Universidad_Fortaleza/src/Business/Universidad.java</file>
+            <file>file:/C:/Users/Camilo/Documents/NetBeansProjects/Universidad_Fortaleza/src/Business/Catedra.java</file>
         </group>
     </open-files>
 </project-private>

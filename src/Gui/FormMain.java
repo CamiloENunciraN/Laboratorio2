@@ -17,6 +17,7 @@ private Universidad myUni;
      */
     public FormMain() {
         initComponents();
+        this.myUni=new Universidad();
     }
 
     public FormMain(Universidad u) {

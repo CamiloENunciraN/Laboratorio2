@@ -16,7 +16,7 @@ public class Planta extends Docente{
     private int noResolucion;
     private String fechaNombramiento;
 
-    public Planta(int puntoSalarial, int valorPunto, String categoria, int noResolucion, String fechaNombramiento, String codigo, String nombre, String titulo, double salarioBasico) {
+    public Planta( String codigo, String nombre, String titulo, double salarioBasico,int puntoSalarial, int valorPunto, String categoria, int noResolucion, String fechaNombramiento) {
         super(codigo, nombre, titulo, salarioBasico);
         this.puntoSalarial = puntoSalarial;
         this.valorPunto = valorPunto;

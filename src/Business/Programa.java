@@ -15,11 +15,13 @@ public class Programa {
     private String nombre;
     private Docente director;
     private ArrayList<Asignatura> listaAsignatura;
+    private ArrayList<Estudiante> listaEstudiante;
 
     public Programa(String codigo, String nombre) {
         this.codigo = codigo;
         this.nombre = nombre;
         this.listaAsignatura=new ArrayList<Asignatura>();
+        this.listaEstudiante=new ArrayList<Estudiante>();
     }
 
     public Programa(String codigo, String nombre, Docente director) {
@@ -45,7 +47,7 @@ public class Programa {
        Asignatura d=null;
        for(int i=0;i<this.listaAsignatura.size();i++){
             d=this.listaAsignatura.get(i);
-           if(codigo.equals(codigo)){
+           if(codigo.equals(d.getCodigo())){
                break;
            }
        }
@@ -53,6 +55,32 @@ public class Programa {
        
     }
 
+    
+    public String registrarEstudiante(String codigo, String nombre, String direccion, String genero, String correo) {
+       String c="El estudiante ya existe";
+       Estudiante d=this.buscarEstudiante(codigo);
+       if(d==null){
+           d=new Estudiante(codigo, nombre, direccion, genero, correo); 
+           this.listaEstudiante.add(d);
+           c="Estudiante Registrado";
+       }
+      
+        return c;
+    }
+    
+    private Estudiante buscarEstudiante(String codigo) {
+       Estudiante d=null;
+       for(int i=0;i<this.listaEstudiante.size();i++){
+            d=this.listaEstudiante.get(i);
+           if(codigo.equals(d.getCodigo())){
+               break;
+           }
+       }
+        return d;
+       
+    }
+    
+    
     public String getCodigo() {
         return codigo;
     }

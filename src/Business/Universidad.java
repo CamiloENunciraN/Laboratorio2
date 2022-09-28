@@ -18,7 +18,8 @@ private ArrayList<Departamento> listaDepartamento;
 
     public Universidad() {
         this.listaDepartamento=new ArrayList<Departamento>();
-
+        this.listaDepartamento.add(new Departamento("1", "sistemas","ufps"));
+        this.listaDepartamento.add(new Departamento("2", "arquitectura","ufps"));
     }
 
     public String registrarDepartamento(String codigo, String nombre, String ubicacion) {
@@ -37,7 +38,7 @@ private ArrayList<Departamento> listaDepartamento;
        Departamento d=null;
        for(int i=0;i<this.listaDepartamento.size();i++){
             d=this.listaDepartamento.get(i);
-           if(codigo.equals(codigo)){
+           if(codigo.equals(d.getCodigo())){
                break;
            }
        }
@@ -50,6 +51,24 @@ private ArrayList<Departamento> listaDepartamento;
      */
     public static void main(String[] args) {
         // TODO code application logic here
+    }
+
+    public String registrarDocente(String departamento , String codigo, String nombre, String titulo, Double salario, String tipo, String categoria, int contratoSemestral, int horasSemanal, Double valorHora, int puntoSalarial, int valorPunto, int resolucion, String fechaNombramiento) {
+    String c = "";
+        Departamento d=this.buscarDepartamento(departamento);
+       c= d.registrarDocente(codigo, nombre, titulo, salario, tipo, categoria,
+               contratoSemestral, horasSemanal, valorHora, puntoSalarial, valorPunto, resolucion, fechaNombramiento);
+    return c;
+    }
+
+    public String listarDapartamento() {
+       String c="";
+        
+        for(int i=0;i<this.listaDepartamento.size();i++){
+            Departamento d=this.listaDepartamento.get(i);
+            c+=d.getCodigo()+" "+d.getNombre()+"-";
+        }
+        return c;
     }
 
 

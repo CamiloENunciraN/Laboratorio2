@@ -5,6 +5,7 @@
 package Gui;
 
 import Business.Universidad;
+import javax.swing.JOptionPane;
 
 /**
  *
@@ -21,10 +22,21 @@ private Universidad myUni;
     }
     
     public FormDocente(Universidad u) {
+
+        initComponents();
         this.habilitarCampos("Seleccione");
         this.myUni=u;
-        initComponents();
+        this.cargarDepartamento();
     }
+    
+    private void cargarDepartamento(){
+        String [] c=this.myUni.listarDapartamento().split("-");
+        this.cmbDepartamento.addItem("Seleccione");
+        for(int i=0;i<c.length;i++){
+            this.cmbDepartamento.addItem(c[i]);
+        }
+    }
+    
     
     private void  habilitarCampos(String tipo){
         if("Seleccione".equals(tipo)){
@@ -108,6 +120,8 @@ private Universidad myUni;
         jLabel14 = new javax.swing.JLabel();
         jLabel15 = new javax.swing.JLabel();
         btRegistrar = new javax.swing.JButton();
+        jLabel13 = new javax.swing.JLabel();
+        cmbDepartamento = new javax.swing.JComboBox<>();
 
         setDefaultCloseOperation(javax.swing.WindowConstants.EXIT_ON_CLOSE);
 
@@ -154,6 +168,13 @@ private Universidad myUni;
         jLabel15.setText("# Resolucion:");
 
         btRegistrar.setText("Rgistrar");
+        btRegistrar.addActionListener(new java.awt.event.ActionListener() {
+            public void actionPerformed(java.awt.event.ActionEvent evt) {
+                btRegistrarActionPerformed(evt);
+            }
+        });
+
+        jLabel13.setText("Departamento:");
 
         javax.swing.GroupLayout layout = new javax.swing.GroupLayout(getContentPane());
         getContentPane().setLayout(layout);
@@ -210,7 +231,11 @@ private Universidad myUni;
                             .addComponent(txtNoResolucion)
                             .addComponent(txtFechaNombramiento)
                             .addComponent(txtValorPunto))))
-                .addContainerGap(128, Short.MAX_VALUE))
+                .addGap(50, 50, 50)
+                .addComponent(jLabel13)
+                .addGap(18, 18, 18)
+                .addComponent(cmbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, 124, javax.swing.GroupLayout.PREFERRED_SIZE)
+                .addContainerGap(32, Short.MAX_VALUE))
         );
         layout.setVerticalGroup(
             layout.createParallelGroup(javax.swing.GroupLayout.Alignment.LEADING)
@@ -220,7 +245,9 @@ private Universidad myUni;
                 .addGap(26, 26, 26)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(jLabel2)
-                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
+                    .addComponent(txtCodigo, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
+                    .addComponent(jLabel13)
+                    .addComponent(cmbDepartamento, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE))
                 .addGap(20, 20, 20)
                 .addGroup(layout.createParallelGroup(javax.swing.GroupLayout.Alignment.BASELINE)
                     .addComponent(txtNombre, javax.swing.GroupLayout.PREFERRED_SIZE, javax.swing.GroupLayout.DEFAULT_SIZE, javax.swing.GroupLayout.PREFERRED_SIZE)
@@ -291,6 +318,41 @@ private Universidad myUni;
         
     }//GEN-LAST:event_cmbTipoActionPerformed
 
+    private void btRegistrarActionPerformed(java.awt.event.ActionEvent evt) {//GEN-FIRST:event_btRegistrarActionPerformed
+        // TODO add your handling code here:
+        String  [] listaDepartamento=String.valueOf(this.cmbDepartamento.getSelectedItem()).split(" ");
+        String departamento=listaDepartamento[0];
+        String codigo=this.txtCodigo.getText();
+        String nombre=this.txtNombre.getText();
+        String titulo=this.txtTitulo.getText();
+        Double salario=Double.valueOf(this.txtSalario.getText());
+        String tipo=String.valueOf(this.cmbTipo.getSelectedItem());
+        
+        String categoria=String.valueOf(this.cmbCategoria.getSelectedItem());
+        
+        int contratoSemestral=Integer.parseInt(this.txtNoContratoSemestral.getText());
+        int horasSemanal=Integer.parseInt(this.txtNoHorasSemanal.getText());
+        Double valorHora=Double.valueOf(this.txtValorHora.getText());
+        
+        int puntoSalarial=Integer.parseInt(this.txtPuntoSalarial.getText());
+        int valorPunto=Integer.parseInt(this.txtValorPunto.getText());
+        int resolucion=Integer.parseInt(this.txtNoResolucion.getText());
+        String fechaNombramiento=this.txtFechaNombramiento.getText();
+                
+        
+        
+        
+        
+        
+        if("".equals(codigo)||"".equals(nombre)||"".equals(titulo)||salario==0||"".equals(tipo)||"Seleccione".equals(departamento)){
+           JOptionPane.showMessageDialog(null, "Ingrese los campos basicos");
+        }   else{
+          String c=  this.myUni.registrarDocente(departamento,codigo,nombre,titulo,salario,tipo,categoria,contratoSemestral,horasSemanal,valorHora,puntoSalarial,valorPunto,resolucion,fechaNombramiento);  
+          JOptionPane.showMessageDialog(null, c);
+        }
+         
+    }//GEN-LAST:event_btRegistrarActionPerformed
+
     /**
      * @param args the command line arguments
      */
@@ -329,11 +391,13 @@ private Universidad myUni;
     // Variables declaration - do not modify//GEN-BEGIN:variables
     private javax.swing.JButton btRegistrar;
     private javax.swing.JComboBox<String> cmbCategoria;
+    private javax.swing.JComboBox<String> cmbDepartamento;
     private javax.swing.JComboBox<String> cmbTipo;
     private javax.swing.JLabel jLabel1;
     private javax.swing.JLabel jLabel10;
     private javax.swing.JLabel jLabel11;
     private javax.swing.JLabel jLabel12;
+    private javax.swing.JLabel jLabel13;
     private javax.swing.JLabel jLabel14;
     private javax.swing.JLabel jLabel15;
     private javax.swing.JLabel jLabel2;

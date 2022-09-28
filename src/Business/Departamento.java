@@ -17,7 +17,7 @@ public class Departamento {
     private ArrayList<Programa> listaPrograma;
     private ArrayList<Docente> listaDocente;
 
-    public Departamento(String nombre, String codigo, String ubicacion) {
+    public Departamento(String codigo, String nombre, String ubicacion) {
         this.nombre = nombre;
         this.codigo = codigo;
         this.ubicacion = ubicacion;
@@ -48,13 +48,34 @@ public class Departamento {
         return c;
     }
     
-    public String registrarDocente(String codigo, String nombre, String titulo, double salarioBasico) {
+    public String registrarDocente(String codigo, String nombre, String titulo, 
+            Double salario, String tipo, String categoria, int contratoSemestral,
+            int horasSemanal, Double valorHora, int puntoSalarial, int valorPunto,
+            int noResolucion, String fechaNombramiento) {
+        
        String c="El docente ya existe";
        Docente d=this.buscarDocente(codigo);
        if(d==null){
-           d=new Docente(codigo, nombre, titulo, salarioBasico); 
-           this.listaDocente.add(d);
-           c="Docente Registrado";
+           
+           if("Catedra".equals(tipo)){
+                d=new Catedra(codigo, nombre, titulo, salario,categoria,
+                        contratoSemestral, horasSemanal,valorHora); 
+                this.listaDocente.add(d);
+                c="Docente Registrado";
+                
+           }else if("Ocacional".equals(tipo)){
+                d=new Ocacional(codigo, nombre, titulo, salario); 
+                this.listaDocente.add(d);
+                c="Docente Registrado";
+                
+           }else if("Planta".equals(tipo)){
+                d=new Planta(codigo, nombre, titulo, salario, puntoSalarial, 
+                        valorPunto,  categoria,  noResolucion,  fechaNombramiento); 
+                this.listaDocente.add(d);
+                c="Docente Registrado";
+           }
+           
+
        }
       
         return c;
@@ -64,7 +85,7 @@ public class Departamento {
        Programa d=null;
        for(int i=0;i<this.listaPrograma.size();i++){
             d=this.listaPrograma.get(i);
-           if(codigo.equals(codigo)){
+           if(codigo.equals(d.getCodigo())){
                break;
            }
        }
@@ -76,7 +97,7 @@ public class Departamento {
        Docente d=null;
        for(int i=0;i<this.listaDocente.size();i++){
             d=this.listaDocente.get(i);
-           if(codigo.equals(codigo)){
+           if(codigo.equals(d.getCodigo())){
                break;
            }
        }
